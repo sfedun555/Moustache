@@ -28,8 +28,8 @@ public class FinalActivity extends AppCompatActivity {
     public final String TAG = "CPR";
 
     ImageView wheel_iv, arrow_iv;
-    TextView points, pointsTv, questionTv, answerTv, scoresTv;
-    EditText pointsEt, letterEt, wordEt;
+    TextView points, questionTv, answerTv, scoresTv;
+    EditText letterEt, wordEt;
     Button spinBtn, wordBtn;
     Random r;
 
@@ -183,7 +183,6 @@ public class FinalActivity extends AppCompatActivity {
         }
         scores += res;
         scoresTv.setText(Integer.toString(scores));
-
     }
 
     private int getResult (int curDegree){
@@ -252,7 +251,6 @@ public class FinalActivity extends AppCompatActivity {
         wheel_iv = (ImageView) findViewById(R.id.wheelIv);
         arrow_iv = (ImageView) findViewById(R.id.arrowIv);
         points = (TextView) findViewById(R.id.points);
-//        pointsTv = (TextView) findViewById(R.id.pointsTv);
         questionTv = (TextView) findViewById(R.id.questionTv);
         answerTv = (TextView) findViewById(R.id.answerTv);
         scoresTv = (TextView) findViewById(R.id.scoresTv);
@@ -321,10 +319,10 @@ public class FinalActivity extends AppCompatActivity {
                     MediaPlayer lose = MediaPlayer.create(FinalActivity.this, R.raw.zvuk_nepravilnogo_slova_v_troyke_igrokov_teleperedachi_pole_chudes_5228);
                     lose.start();
                     scores = 0;
-/*                    Toast.makeText(getApplicationContext(), "You lost!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                    Toast.makeText(getApplicationContext(), "You lost!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(FinalActivity.this, MainActivity.class);
                     startActivity(intent);
-*/                }
+                }
             }
         });
 
@@ -361,8 +359,6 @@ public class FinalActivity extends AppCompatActivity {
                         wordBtn.setVisibility(View.GONE);
                         res = getResult(360 - (curDegree % 360));
                         Log.v(TAG, Integer.toString(res) );
-
-                        //                        scoresTv.setText(Integer.toString();
 
                         while (letterEt.getText().toString() == "") {
 
